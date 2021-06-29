@@ -1,6 +1,9 @@
 server:
   port: 8082
 
+daps:
+  token: "someToken"
+
 provider:
   login: "admin"
   password: "password"

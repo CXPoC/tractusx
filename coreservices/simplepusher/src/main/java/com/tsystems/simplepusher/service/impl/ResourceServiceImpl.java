@@ -7,6 +7,7 @@ import com.tsystems.simplepusher.model.ids.IdsConnectorDescription;
 import com.tsystems.simplepusher.remote.ResourceRepository;
 import com.tsystems.simplepusher.service.ResourceService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ResourceServiceImpl implements ResourceService {
 
     /**
@@ -52,6 +54,19 @@ public class ResourceServiceImpl implements ResourceService {
     @Scheduled(fixedDelay = 30000)
     public void updateEachResource() {
         providerConfig.getConsumers().forEach(consumer ->
-                consumer.getResourcesIds().forEach(resourceId -> this.updateResource(resourceId, consumer.getUrl())));
+                consumer.getResourcesIds().forEach(resourceId -> callQuietly(() -> this.updateResource(resourceId, consumer.getUrl()))));
+    }
+
+    /**
+     * Suppresses exceptions per message to continue with next update.
+     *
+     * @param runnable runnable to call
+     */
+    private void callQuietly(Runnable runnable) {
+        try {
+            runnable.run();
+        } catch (Exception ex) {
+            log.info("Exception fires in handling update messages.", ex);
+        }
     }
 }

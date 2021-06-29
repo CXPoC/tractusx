@@ -2,6 +2,7 @@ package com.tsystems.simplepusher.remote.impl;
 
 import com.tsystems.simplepusher.client.DataspaceConnectorResourcesClient;
 import com.tsystems.simplepusher.client.model.ResourceMetadata;
+import com.tsystems.simplepusher.config.DapsConfig;
 import com.tsystems.simplepusher.remote.ResourceRepository;
 import de.fraunhofer.iais.eis.DynamicAttributeToken;
 import de.fraunhofer.iais.eis.DynamicAttributeTokenBuilder;
@@ -44,6 +45,11 @@ public class ResourceRepositoryImpl implements ResourceRepository {
      */
     private final OkHttpClient okHttpClient;
 
+    /**
+     * Daps configuration.
+     */
+    private final DapsConfig dapsConfig;
+
 
     @Override
     public ResourceMetadata getResource(UUID uuid) {
@@ -57,25 +63,23 @@ public class ResourceRepositoryImpl implements ResourceRepository {
 
     @SneakyThrows
     public Response updateResourceRemote(String url, Resource resource, URI connectorID) {
-        //ToDO: security token?
         var header = BrokerIDSMessageUtils.buildResourceUpdateMessage(getDAT(), "4.0.0",
                 connectorID, resource);
         var payload = serializer.serialize(resource);
         var body = BrokerIDSMessageUtils.buildRequestBody(header, payload);
 
-        return sendBrokerMessage(url, body);
+        return sendMessage(url, body);
     }
 
     public DynamicAttributeToken getDAT() {
         return new DynamicAttributeTokenBuilder()
                 ._tokenFormat_(TokenFormat.JWT)
-                //ToDo: token?
-                ._tokenValue_("SomeToken")
+                ._tokenValue_(dapsConfig.getToken())
                 .build();
     }
 
     @SneakyThrows
-    private Response sendBrokerMessage(String brokerURI, RequestBody requestBody) {
+    private Response sendMessage(String brokerURI, RequestBody requestBody) {
         return okHttpClient.newCall((new Request.Builder()).url(brokerURI).post(requestBody).build()).execute();
     }
 }

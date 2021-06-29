@@ -1,6 +1,7 @@
 package com.tsystems.simplepusher.converter;
 
 import com.tsystems.simplepusher.client.model.ResourceMetadata;
+import com.tsystems.simplepusher.client.model.ResourceRepresentation;
 import com.tsystems.simplepusher.model.ids.IdsConnectorDescription;
 import de.fraunhofer.iais.eis.*;
 import de.fraunhofer.iais.eis.ids.jsonld.Serializer;
@@ -8,9 +9,9 @@ import de.fraunhofer.iais.eis.util.ConstraintViolationException;
 import de.fraunhofer.iais.eis.util.TypedLiteral;
 import de.fraunhofer.iais.eis.util.Util;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
-import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.IOException;
@@ -18,10 +19,11 @@ import java.math.BigInteger;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.UUID;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static org.apache.commons.collections4.ListUtils.emptyIfNull;
 
 /**
  * Original converting can be seen in {@link de.fraunhofer.isst.ids.framework.util.IDSUtils}
@@ -46,6 +48,9 @@ public class MetaDataToResouceConverter {
      */
     public Resource convert(ResourceMetadata metadata, IdsConnectorDescription connector, UUID uuid) {
         // Get the list of keywords
+        Map<UUID, ResourceRepresentation> mapMetaData = emptyIfNull(metadata.getRepresentations()).stream()
+                .collect(Collectors.toMap(ResourceRepresentation::getUuid, Function.identity()));
+
         var keywords = new ArrayList<TypedLiteral>();
         if (metadata.getKeywords() != null) {
             for (var keyword : metadata.getKeywords()) {
@@ -56,7 +61,7 @@ public class MetaDataToResouceConverter {
         // Get the list of representations
         var representations = new ArrayList<Representation>();
         if (metadata.getRepresentations() != null) {
-            for (var representation : metadata.getRepresentations().values()) {
+            for (var representation : mapMetaData.values()) {
                 try {
                     representations.add(new RepresentationBuilder(URI.create(
                             "https://w3id.org/idsa/autogen/representation/" + representation.getUuid()))
@@ -138,14 +143,10 @@ public class MetaDataToResouceConverter {
      * @param date the date object.
      * @return the XMLGregorianCalendar object or null.
      */
+    @SneakyThrows
     public XMLGregorianCalendar getGregorianOf(Date date) {
         GregorianCalendar c = new GregorianCalendar();
         c.setTime(date);
-        try {
-            return DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-        } catch (DatatypeConfigurationException exception) {
-            // Rethrow but do not register in function header
-            throw new RuntimeException(exception);
-        }
+        return DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
     }
 }
