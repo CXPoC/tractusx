@@ -12,10 +12,9 @@ import java.util.UUID;
 @EnableScheduling
 @EnableFeignClients
 @ConfigurationPropertiesScan("com.tsystems.simplepusher.config")
-public class SimpleSchedulerApplication {
+public class SimplePushApplication {
 
     public static void main(String[] args) {
-        UUID.fromString("f6af5dbe-0580-4b99-91fd-104e926e3458");
-        SpringApplication.run(SimpleSchedulerApplication.class);
+        SpringApplication.run(SimplePushApplication.class);
     }
 }
