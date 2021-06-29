@@ -16,6 +16,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -107,7 +109,6 @@ public class MetaDataToResouceConverter {
                 .build();
 
         // Build the ids resource.
-        //ToDO: created date?
         try {
             return new ResourceBuilder(
                     URI.create("https://w3id.org/idsa/autogen/resource/" + uuid))
@@ -115,6 +116,8 @@ public class MetaDataToResouceConverter {
                     ._description_(Util.asList(new TypedLiteral(metadata.getDescription(), "EN")))
                     ._keyword_(keywords)
                     ._language_(Util.asList(Language.EN))
+                    //ToDO: created date?
+                    ._created_(getGregorianOf(Date.from(LocalDateTime.now().minusMonths(12).toInstant(ZoneOffset.UTC))))
                     ._modified_(getGregorianOf(new Date()))
                     ._publisher_(metadata.getOwner())
                     ._representation_(representations)

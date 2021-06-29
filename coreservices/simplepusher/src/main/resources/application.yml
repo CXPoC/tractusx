@@ -11,4 +11,3 @@ push:
     - url: "https://localhost:8081/api/ids/data"
       resourcesIds:
         - "f6af5dbe-0580-4b99-91fd-104e926e3458"
-        - "c4f39387-74a6-4a90-9622-ec55051f8e10"
