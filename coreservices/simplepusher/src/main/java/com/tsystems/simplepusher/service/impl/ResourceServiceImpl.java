@@ -51,6 +51,7 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
+    //ToDO: better way to trigger resource update
     @Scheduled(fixedDelay = 30000)
     public void updateEachResource() {
         providerConfig.getConsumers().forEach(consumer ->

@@ -1,4 +1,4 @@
-package com.tsystems.simplepusher.client.model;
+package com.tsystems.simplepusher.model.ids;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DataSource {
-    private DataSourceTypeEnum type;
+public class IdsDataSource {
+    private IdsDataSourceTypeEnum type;
     private String url;
     private String username;
     private String password;

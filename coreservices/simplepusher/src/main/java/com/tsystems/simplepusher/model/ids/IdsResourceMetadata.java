@@ -1,4 +1,4 @@
-package com.tsystems.simplepusher.client.model;
+package com.tsystems.simplepusher.model.ids;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.net.URI;
 import java.util.List;
 
 @Data
-public class ResourceMetadata {
+public class IdsResourceMetadata {
     @JsonProperty("title")
     private String title;
 
@@ -35,5 +35,5 @@ public class ResourceMetadata {
 
     @NotNull
     @JsonProperty("representations")
-    private List<ResourceRepresentation> representations;
+    private List<IdsResourceRepresentation> representations;
 }

@@ -8,12 +8,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.UUID;
 
+/**
+ * Application is used to push data to ds connectors.
+ */
 @SpringBootApplication
 @EnableScheduling
 @EnableFeignClients
 @ConfigurationPropertiesScan("com.tsystems.simplepusher.config")
 public class SimplePushApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SimplePushApplication.class);
     }

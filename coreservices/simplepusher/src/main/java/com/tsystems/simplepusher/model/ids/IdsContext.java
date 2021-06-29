@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
-public class Context {
+public class IdsContext {
     public String ids;
     public String idsc;
 }

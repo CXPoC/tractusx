@@ -1,7 +1,7 @@
 package com.tsystems.simplepusher.client;
 
-import com.tsystems.simplepusher.client.model.ResourceMetadata;
-import com.tsystems.simplepusher.client.model.ResourceRepresentation;
+import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
+import com.tsystems.simplepusher.model.ids.IdsResourceRepresentation;
 import com.tsystems.simplepusher.context.DsFeignConnectorContextConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -19,25 +19,25 @@ import java.util.UUID;
 )
 public interface DataspaceConnectorResourcesClient {
     @PostMapping(path = "/resource", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
-    String registerResource(@RequestBody ResourceMetadata metadata);
+    String registerResource(@RequestBody IdsResourceMetadata metadata);
 
     @GetMapping(path = "/{resourceId}")
-    ResourceMetadata getResource(@PathVariable("resourceId") UUID resourceId);
+    IdsResourceMetadata getResource(@PathVariable("resourceId") UUID resourceId);
 
     @PutMapping(path = "/{resourceId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    void updateResource(@PathVariable("resourceId") UUID resourceId, @RequestBody ResourceMetadata metadata);
+    void updateResource(@PathVariable("resourceId") UUID resourceId, @RequestBody IdsResourceMetadata metadata);
 
     @DeleteMapping(path = "/{resourceId}")
     void deleteResource(@PathVariable("resourceId") UUID resourceId);
 
     @PostMapping(path = "/{resourceId}/representation", consumes = MediaType.APPLICATION_JSON_VALUE)
-    UUID addRepresentation(@PathVariable("resourceId") UUID resourceId, @RequestBody ResourceRepresentation representation);
+    UUID addRepresentation(@PathVariable("resourceId") UUID resourceId, @RequestBody IdsResourceRepresentation representation);
 
     @GetMapping(path = "/{resourceId}/{representationId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResourceRepresentation getRepresentation(@PathVariable("resourceId") UUID resourceId, @PathVariable("representationId") UUID representationId);
+    IdsResourceRepresentation getRepresentation(@PathVariable("resourceId") UUID resourceId, @PathVariable("representationId") UUID representationId);
 
     @PutMapping(path = "/{resourceId}/{representationId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    void updateRepresentation(@PathVariable("resourceId") UUID resourceId, @PathVariable("representationId") UUID representationId, @RequestBody ResourceRepresentation representation);
+    void updateRepresentation(@PathVariable("resourceId") UUID resourceId, @PathVariable("representationId") UUID representationId, @RequestBody IdsResourceRepresentation representation);
 
     @DeleteMapping(path = "/{resourceId}/{representationId}")
     void deleteRepresentation(@PathVariable("resourceId") UUID resourceId, @PathVariable("representationId") UUID representationId);

@@ -1,4 +1,4 @@
-package com.tsystems.simplepusher.client.model;
+package com.tsystems.simplepusher.model.ids;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -11,10 +11,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ResourceRepresentation {
+public class IdsResourceRepresentation {
     private UUID uuid;
     private String type;
     private Long byteSize;
     private String name;
-    private DataSource source;
+    private IdsDataSource source;
 }

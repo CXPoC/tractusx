@@ -1,7 +1,7 @@
 package com.tsystems.simplepusher.converter;
 
-import com.tsystems.simplepusher.client.model.ResourceMetadata;
-import com.tsystems.simplepusher.client.model.ResourceRepresentation;
+import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
+import com.tsystems.simplepusher.model.ids.IdsResourceRepresentation;
 import com.tsystems.simplepusher.model.ids.IdsConnectorDescription;
 import de.fraunhofer.iais.eis.*;
 import de.fraunhofer.iais.eis.ids.jsonld.Serializer;
@@ -46,10 +46,10 @@ public class MetaDataToResouceConverter {
      * @param uuid      UUID of resource
      * @return converter {@link Resource}
      */
-    public Resource convert(ResourceMetadata metadata, IdsConnectorDescription connector, UUID uuid) {
+    public Resource convert(IdsResourceMetadata metadata, IdsConnectorDescription connector, UUID uuid) {
         // Get the list of keywords
-        Map<UUID, ResourceRepresentation> mapMetaData = emptyIfNull(metadata.getRepresentations()).stream()
-                .collect(Collectors.toMap(ResourceRepresentation::getUuid, Function.identity()));
+        Map<UUID, IdsResourceRepresentation> mapMetaData = emptyIfNull(metadata.getRepresentations()).stream()
+                .collect(Collectors.toMap(IdsResourceRepresentation::getUuid, Function.identity()));
 
         var keywords = new ArrayList<TypedLiteral>();
         if (metadata.getKeywords() != null) {

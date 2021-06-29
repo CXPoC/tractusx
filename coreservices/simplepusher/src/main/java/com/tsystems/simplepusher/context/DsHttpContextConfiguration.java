@@ -27,6 +27,7 @@ public class DsHttpContextConfiguration {
 
     @Bean
     public OkHttpClient okHttpClient() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
+        //ToDo: do not trust selfsigned sertificates or do it with dev profile.
         TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm());
         trustManagerFactory.init((KeyStore) null);
@@ -36,7 +37,6 @@ public class DsHttpContextConfiguration {
                     + Arrays.toString(trustManagers));
         }
         X509TrustManager trustManager = (X509TrustManager) trustManagers[0];
-
 
         return new OkHttpClient.Builder()
                 .sslSocketFactory(SSLContextBuilder.create()

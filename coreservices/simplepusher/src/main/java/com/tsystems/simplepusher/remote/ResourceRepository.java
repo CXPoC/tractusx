@@ -1,6 +1,6 @@
 package com.tsystems.simplepusher.remote;
 
-import com.tsystems.simplepusher.client.model.ResourceMetadata;
+import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
 import de.fraunhofer.iais.eis.Resource;
 
 import java.net.URI;
@@ -16,7 +16,7 @@ public interface ResourceRepository {
      *
      * @return gets resource
      */
-    ResourceMetadata getResource(UUID uuid);
+    IdsResourceMetadata getResource(UUID uuid);
 
     /**
      * Patches resource to concrete connector.
