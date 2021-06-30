@@ -59,7 +59,7 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     /**
-     * Suppresses exceptions per message to continue with next update.
+     * Suppresses exceptions per message continuing to next update.
      *
      * @param runnable runnable to call
      */

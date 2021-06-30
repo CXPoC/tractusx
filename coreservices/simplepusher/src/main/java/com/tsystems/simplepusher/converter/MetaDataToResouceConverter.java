@@ -38,7 +38,7 @@ public class MetaDataToResouceConverter {
     private final Serializer serializer;
 
     /**
-     * Converts resourcemetadata to resouce
+     * Converts resourcemetadata to resource
      * The original code can be seen at {@link de.fraunhofer.isst.ids.framework.util.IDSUtils}
      *
      * @param metadata  metadata
