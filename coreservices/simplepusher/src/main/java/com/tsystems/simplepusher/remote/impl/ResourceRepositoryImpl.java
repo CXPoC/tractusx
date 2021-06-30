@@ -1,8 +1,8 @@
 package com.tsystems.simplepusher.remote.impl;
 
 import com.tsystems.simplepusher.client.DataspaceConnectorResourcesClient;
-import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
 import com.tsystems.simplepusher.config.DapsConfig;
+import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
 import com.tsystems.simplepusher.remote.ResourceRepository;
 import de.fraunhofer.iais.eis.DynamicAttributeToken;
 import de.fraunhofer.iais.eis.DynamicAttributeTokenBuilder;
@@ -31,25 +31,29 @@ import java.util.UUID;
 public class ResourceRepositoryImpl implements ResourceRepository {
 
     /**
+     * Info model version.
+     */
+    private final static String INFO_MODEL_VERSION = "4.0.0";
+    /**
+     * Url format.
+     */
+    private final static String MESSAGE_REQUEST_FORMAT = "%s/api/ids/data";
+    /**
      * Resources client.
      */
     private final DataspaceConnectorResourcesClient resourcesClient;
-
     /**
      * Serializer.
      */
     private final Serializer serializer;
-
     /**
      * Ok http client.
      */
     private final OkHttpClient okHttpClient;
-
     /**
      * Daps configuration.
      */
     private final DapsConfig dapsConfig;
-
 
     @Override
     public IdsResourceMetadata getResource(UUID uuid) {
@@ -58,17 +62,17 @@ public class ResourceRepositoryImpl implements ResourceRepository {
 
     @Override
     public void patchResource(Resource resource, String url, URI connectorID) {
-        updateResourceRemote(url, resource, connectorID);
+        updateResourceRemote(url, resource, connectorID).body().close();
     }
 
     @SneakyThrows
     public Response updateResourceRemote(String url, Resource resource, URI connectorID) {
-        var header = BrokerIDSMessageUtils.buildResourceUpdateMessage(getDAT(), "4.0.0",
+        var header = BrokerIDSMessageUtils.buildResourceUpdateMessage(getDAT(), INFO_MODEL_VERSION,
                 connectorID, resource);
         var payload = serializer.serialize(resource);
         var body = BrokerIDSMessageUtils.buildRequestBody(header, payload);
 
-        return sendMessage(url, body);
+        return sendMessage(String.format(MESSAGE_REQUEST_FORMAT, url), body);
     }
 
     /**
@@ -84,7 +88,7 @@ public class ResourceRepositoryImpl implements ResourceRepository {
     }
 
     @SneakyThrows
-    private Response sendMessage(String brokerURI, RequestBody requestBody) {
-        return okHttpClient.newCall((new Request.Builder()).url(brokerURI).post(requestBody).build()).execute();
+    private Response sendMessage(String url, RequestBody requestBody) {
+        return okHttpClient.newCall((new Request.Builder()).url(url).post(requestBody).build()).execute();
     }
 }

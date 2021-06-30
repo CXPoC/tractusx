@@ -39,13 +39,13 @@ public class ResourceServiceImpl implements ResourceService {
     private final DataspaceConnectorMainClient mainClient;
 
     @Override
-    public void updateResource(String resourceId, String consumerUrl) {
+    public void updateResource(UUID resourceId, String consumerUrl) {
         //get connector description of provider
         IdsConnectorDescription connector = mainClient.getConnector();
         //get metadata of resource
-        var source = resourceRepository.getResource(UUID.fromString(resourceId));
+        var source = resourceRepository.getResource(resourceId);
         //convert it to message update
-        var converted = converter.convert(source, connector, UUID.fromString(resourceId));
+        var converted = converter.convert(source, connector, resourceId);
         //call patch resource
         resourceRepository.patchResource(converted, consumerUrl, connector.getId());
     }
@@ -55,7 +55,7 @@ public class ResourceServiceImpl implements ResourceService {
     @Scheduled(fixedDelay = 30000)
     public void updateEachResource() {
         providerConfig.getConsumers().forEach(consumer ->
-                consumer.getResourcesIds().forEach(resourceId -> callQuietly(() -> this.updateResource(resourceId, consumer.getUrl()))));
+                consumer.getResourcesIds().forEach(resourceId -> callQuietly(() -> this.updateResource(UUID.fromString(resourceId) , consumer.getUrl()))));
     }
 
     /**
@@ -67,7 +67,7 @@ public class ResourceServiceImpl implements ResourceService {
         try {
             runnable.run();
         } catch (Exception ex) {
-            log.info("Exception fires in handling update messages.", ex);
+            log.error("Exception fires in handling update messages.", ex);
         }
     }
 }

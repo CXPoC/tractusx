@@ -1,5 +1,7 @@
 package com.tsystems.simplepusher.service;
 
+import java.util.UUID;
+
 public interface ResourceService {
 
     /**
@@ -8,7 +10,7 @@ public interface ResourceService {
      * @param resourceId resource id.
      * @param consumerUrl consumer url.
      */
-    void updateResource(String resourceId, String consumerUrl);
+    void updateResource(UUID resourceId, String consumerUrl);
 
     /**
      * Updates every single resource.

@@ -12,6 +12,6 @@ provider:
 push:
   consumers:
     #ToDo: api/ids/data to repository scope
-    - url: "https://localhost:8081/api/ids/data"
+    - url: "https://localhost:8081"
       resourcesIds:
         - "f6af5dbe-0580-4b99-91fd-104e926e3458"
