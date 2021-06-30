@@ -1,6 +1,5 @@
 package com.tsystems.simplepusher.converter;
 
-import com.tsystems.simplepusher.model.ids.IdsConnectorDescription;
 import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
 import com.tsystems.simplepusher.model.ids.IdsResourceRepresentation;
 import de.fraunhofer.iais.eis.*;
@@ -31,14 +30,14 @@ import static org.apache.commons.collections4.ListUtils.emptyIfNull;
 public class MetaDataToResouceConverter {
 
     /**
+     * {@link BaseConnectorImpl} language "en" hardcoded here anyway.
+     * Language.
+     */
+    private static final String LANGUAGE = "en";
+    /**
      * Serializer of fraunhofer.
      */
     private final Serializer serializer;
-
-    /**
-     * Language.
-     */
-    private static final String LANGUAGE = "EN";
 
     /**
      * Converts resourcemetadata to resource
@@ -50,7 +49,7 @@ public class MetaDataToResouceConverter {
      * @return converter {@link Resource}
      */
     @SneakyThrows
-    public Resource convert(IdsResourceMetadata metadata, IdsConnectorDescription connector, UUID uuid) {
+    public Resource convert(IdsResourceMetadata metadata, Connector connector, UUID uuid) {
         // Get the list of keywords
         Map<UUID, IdsResourceRepresentation> mapMetaData = emptyIfNull(metadata.getRepresentations()).stream()
                 .collect(Collectors.toMap(IdsResourceRepresentation::getUuid, Function.identity()));
@@ -103,8 +102,8 @@ public class MetaDataToResouceConverter {
         }
 
         // Build the connector endpoint
-        ConnectorEndpoint ce = new ConnectorEndpointBuilder(connector.getIdsHasDefaultEndpoint().getId())
-                ._accessURL_(connector.getIdsHasDefaultEndpoint().getIdsAccessURL().getId())
+        ConnectorEndpoint ce = new ConnectorEndpointBuilder(connector.getHasDefaultEndpoint().getId())
+                ._accessURL_(connector.getHasDefaultEndpoint().getAccessURL())
                 ._endpointDocumentation_(Util.asList(
                         metadata.getEndpointDocumentation()))
                 .build();

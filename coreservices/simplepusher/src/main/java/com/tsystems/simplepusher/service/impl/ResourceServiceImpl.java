@@ -3,9 +3,9 @@ package com.tsystems.simplepusher.service.impl;
 import com.tsystems.simplepusher.client.DataspaceConnectorMainClient;
 import com.tsystems.simplepusher.config.ProviderConnectorConfig;
 import com.tsystems.simplepusher.converter.MetaDataToResouceConverter;
-import com.tsystems.simplepusher.model.ids.IdsConnectorDescription;
 import com.tsystems.simplepusher.remote.ResourceRepository;
 import com.tsystems.simplepusher.service.ResourceService;
+import de.fraunhofer.iais.eis.Connector;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -41,13 +41,13 @@ public class ResourceServiceImpl implements ResourceService {
     @Override
     public void updateResource(UUID resourceId, String consumerUrl) {
         //get connector description of provider
-        IdsConnectorDescription connector = mainClient.getConnector();
+        Connector description = mainClient.getConnectorDescription();
         //get metadata of resource
         var source = resourceRepository.getResource(resourceId);
         //convert it to message update
-        var converted = converter.convert(source, connector, resourceId);
+        var converted = converter.convert(source, description, resourceId);
         //call patch resource
-        resourceRepository.patchResource(converted, consumerUrl, connector.getId());
+        resourceRepository.patchResource(converted, consumerUrl, description.getId());
     }
 
     @Override

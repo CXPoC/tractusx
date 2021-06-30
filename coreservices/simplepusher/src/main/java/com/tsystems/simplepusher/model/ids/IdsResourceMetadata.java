@@ -1,5 +1,6 @@
 package com.tsystems.simplepusher.model.ids;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -9,31 +10,31 @@ import java.util.List;
 
 @Data
 public class IdsResourceMetadata {
-    @JsonProperty("title")
+    @JsonProperty("ids:title")
     private String title;
 
-    @JsonProperty("description")
+    @JsonProperty("ids:description")
     private String description;
 
-    @JsonProperty("keywords")
+    @JsonProperty("ids:keywords")
     private List<String> keywords;
 
-    @JsonProperty("policy")
+    @JsonProperty("ids:policy")
     private String policy;
 
-    @JsonProperty("owner")
+    @JsonProperty("ids:owner")
     private URI owner;
 
-    @JsonProperty("license")
+    @JsonProperty("ids:license")
     private URI license;
 
-    @JsonProperty("version")
+    @JsonProperty("ids:version")
     private String version;
 
-    @JsonProperty("endpointDocumentation")
+    @JsonProperty("ids:endpointDocumentation")
     private URI endpointDocumentation;
 
     @NotNull
-    @JsonProperty("representations")
+    @JsonProperty("ids:representations")
     private List<IdsResourceRepresentation> representations;
 }
