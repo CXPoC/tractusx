@@ -1,27 +1,22 @@
 package com.tsystems.simplepusher.service.impl;
 
 import com.tsystems.simplepusher.client.DataspaceConnectorMainClient;
-import com.tsystems.simplepusher.config.ProviderConnectorConfig;
 import com.tsystems.simplepusher.converter.MetaDataToResouceConverter;
 import com.tsystems.simplepusher.remote.ResourceRepository;
+import com.tsystems.simplepusher.service.ClientService;
 import com.tsystems.simplepusher.service.ResourceService;
 import de.fraunhofer.iais.eis.Connector;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class ResourceServiceImpl implements ResourceService {
-
-    /**
-     * Provider config.
-     */
-    private final ProviderConnectorConfig providerConfig;
 
     /**
      * Resource repository.
@@ -38,24 +33,27 @@ public class ResourceServiceImpl implements ResourceService {
      */
     private final DataspaceConnectorMainClient mainClient;
 
-    @Override
-    public void updateResource(UUID resourceId, String consumerUrl) {
-        //get connector description of provider
-        Connector description = mainClient.getConnectorDescription();
-        //get metadata of resource
-        var source = resourceRepository.getResource(resourceId);
-        //convert it to message update
-        var converted = converter.convert(source, description, resourceId);
-        //call patch resource
-        resourceRepository.patchResource(converted, consumerUrl, description.getId());
-    }
+    /**
+     * Client service.
+     */
+    private final ClientService clientService;
 
     @Override
-    //ToDO: better way to trigger resource update
-    @Scheduled(fixedDelay = 30000)
-    public void updateEachResource() {
-        providerConfig.getConsumers().forEach(consumer ->
-                consumer.getResourcesIds().forEach(resourceId -> callQuietly(() -> this.updateResource(UUID.fromString(resourceId) , consumer.getUrl()))));
+    public void updateResource(UUID resourceId) {
+        List<String> uris = clientService.getAllPublicClients(resourceId);
+
+        uris.forEach(consumerUrl ->
+                callQuietly(() -> {
+                    //get connector description of provider
+                    Connector description = mainClient.getConnectorDescription();
+                    //get metadata of resource
+                    var source = resourceRepository.getResource(resourceId);
+                    //convert it to message update
+                    var converted = converter.convert(source, description, resourceId);
+                    //call patch resource
+                    resourceRepository.patchResource(converted, consumerUrl, description.getId());
+                })
+        );
     }
 
     /**

@@ -1,17 +1,16 @@
 server:
   port: 8082
 
-daps:
-  token: "someToken"
-
 provider:
   login: "admin"
   password: "password"
   url: "https://localhost:8080"
 
-push:
-  consumers:
-    #ToDo: api/ids/data to repository scope
-    - url: "https://localhost:8081"
-      resourcesIds:
-        - "f6af5dbe-0580-4b99-91fd-104e926e3458"
+zuul:
+  host:
+    connect-timeout-millis: 120000
+    socket-timeout-millis: 120000
+  routes:
+    ids-connector-provider:
+      path: /connector/**
+      url: ${provider.url}/

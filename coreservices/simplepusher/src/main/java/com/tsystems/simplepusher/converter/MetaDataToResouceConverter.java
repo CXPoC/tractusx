@@ -115,7 +115,6 @@ public class MetaDataToResouceConverter {
                 ._description_(Util.asList(new TypedLiteral(metadata.getDescription(), LANGUAGE)))
                 ._keyword_(keywords)
                 ._language_(Util.asList(Language.EN))
-                //ToDO: created date?
                 ._created_(getGregorianOf(Date.from(LocalDateTime.now().minusMonths(12).toInstant(ZoneOffset.UTC))))
                 ._modified_(getGregorianOf(new Date()))
                 ._publisher_(metadata.getOwner())

@@ -1,7 +1,6 @@
 package com.tsystems.simplepusher.remote.impl;
 
 import com.tsystems.simplepusher.client.DataspaceConnectorResourcesClient;
-import com.tsystems.simplepusher.config.DapsConfig;
 import com.tsystems.simplepusher.model.ids.IdsResourceMetadata;
 import com.tsystems.simplepusher.remote.ResourceRepository;
 import de.fraunhofer.iais.eis.DynamicAttributeToken;
@@ -50,10 +49,6 @@ public class ResourceRepositoryImpl implements ResourceRepository {
      * Ok http client.
      */
     private final OkHttpClient okHttpClient;
-    /**
-     * Daps configuration.
-     */
-    private final DapsConfig dapsConfig;
 
     @Override
     public IdsResourceMetadata getResource(UUID uuid) {
@@ -83,7 +78,8 @@ public class ResourceRepositoryImpl implements ResourceRepository {
     private DynamicAttributeToken getDAT() {
         return new DynamicAttributeTokenBuilder()
                 ._tokenFormat_(TokenFormat.JWT)
-                ._tokenValue_(dapsConfig.getToken())
+                //ToDo: daps token handling
+//                ._tokenValue_(dapsConfig.getToken())
                 .build();
     }
 
