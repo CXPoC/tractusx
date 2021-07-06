@@ -2,6 +2,7 @@ package com.tsystems.simplepusher.controller;
 
 import com.tsystems.simplepusher.service.ResourceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,8 +25,8 @@ public class ResourceController {
      *
      * @param uuid resource id.
      */
-    @PostMapping("/resources/trigger")
-    public void triggerUpdates(UUID uuid) {
+    @PostMapping("/resources/{uuid}}")
+    public void triggerUpdates(@PathVariable("uuid") UUID uuid) {
         resourceService.updateResource(uuid);
     }
 }
