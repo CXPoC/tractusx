@@ -1,11 +1,16 @@
 server:
   port: 8082
+  ssl:
+    enabled: true
+    key-alias: 1
+    key-store-password: password
+    key-store: classpath:conf/keystore-localhost.p12
+    key-store-type: PKCS12
 
 provider:
   login: "admin"
   password: "password"
   url: "https://localhost:8080"
-
 
 spring:
   cloud:
