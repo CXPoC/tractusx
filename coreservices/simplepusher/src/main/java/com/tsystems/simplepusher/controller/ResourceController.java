@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
@@ -25,7 +26,7 @@ public class ResourceController {
      *
      * @param uuid resource id.
      */
-    @PostMapping("/resources/{uuid}}")
+    @PostMapping(path = "/resources/{uuid}")
     public void triggerUpdates(@PathVariable("uuid") UUID uuid) {
         resourceService.updateResource(uuid);
     }

@@ -6,11 +6,18 @@ provider:
   password: "password"
   url: "https://localhost:8080"
 
-zuul:
-  host:
-    connect-timeout-millis: 120000
-    socket-timeout-millis: 120000
-  routes:
-    ids-connector-provider:
-      path: /connector/**
-      url: ${provider.url}/
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true
+      routes:
+        - id: default-route
+          uri: ${provider.url}
+          predicates:
+            - Path=/**
+          filters:
+            - ConnectorProxyFilter
+

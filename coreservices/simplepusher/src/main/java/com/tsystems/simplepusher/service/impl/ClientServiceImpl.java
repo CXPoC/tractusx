@@ -22,10 +22,6 @@ public class ClientServiceImpl implements ClientService {
     @Override
     //ToDo: fix dummy code
     public void addClientToResource(UUID uuid, String uri) {
-        uuidMap.putIfAbsent(uuid, Arrays.asList(uri));
-        uuidMap.computeIfPresent(uuid, (key, value) -> {
-            value.add(uri);
-            return value;
-        });
+        uuidMap.put(uuid, Arrays.asList(uri));
     }
 }
