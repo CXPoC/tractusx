@@ -28,7 +28,7 @@ spec:
                 name: metadata-broker-open-core
                 port: 
                   number: 8080
-          - path: /fuseki
+          - path: /fuseki(/|$)(.*)
             pathType: Prefix
             backend:
               service:
