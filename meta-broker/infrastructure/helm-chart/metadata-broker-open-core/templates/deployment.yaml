@@ -61,7 +61,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
           - name: fuseki-config
-            mountPath: /jena-fuseki/shiro.ini
+            mountPath: /jena-fuseki
       volumes:
         - name: fuseki-config
           configMap:
