@@ -59,6 +59,13 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - name: fuseki-config
+            mountPath: /jena-fuseki/shiro.ini
+      volumes:
+        - name: fuseki-config-volume
+          configMap:
+            name: fuseki-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
