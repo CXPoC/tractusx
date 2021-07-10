@@ -63,7 +63,7 @@ spec:
           - name: fuseki-config
             mountPath: /jena-fuseki/shiro.ini
       volumes:
-        - name: fuseki-config-volume
+        - name: fuseki-config
           configMap:
             name: fuseki-config
       {{- with .Values.nodeSelector }}
