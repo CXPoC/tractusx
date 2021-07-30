@@ -179,7 +179,7 @@ class DataUpload2 extends React.Component<RouteComponentProps> {
 
     return (
       <div className='w100pc h100pc df fdc bgf5'>
-        <Header href={window.location.href} hidePivot appTitle='Data Upload Appplication' />
+        <Header href={window.location.href} hidePivot appTitle='Data Upload Application' />
         <div className='h1 bgde w100pc' />
         <div className='df aic'>
           <div className='fgblack fs15 fw600 tdn df mt30 mb10 aic cpointer ml150 w100' onClick={() => this.backClick()}>
