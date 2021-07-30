@@ -1,5 +1,763 @@
 [
   {
+    "oneID": "Partner_00001_BOSCH",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Bosch",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128135"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@bosch.de",
+        "website": "https://www.bosch.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "123456789",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456781",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BOSCH_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Robert-Bosch-Platz",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "70839",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Gerlingen-Schillerhöhe",
+        "district": "",
+        "region": "Baden-Württemberg",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00002_BILSTEIN",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "THYSSENKRUPP Bilstein",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "GmbH"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "Steuernummer",
+        "identificationNumber": "112/5795/0833"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@bilstein.com",
+        "website": "https://www.bilstein.com/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "123456789",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE65330400010582866000",
+        "currency": "EUR",
+        "bankIdentifier": "Commerzbank AG",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BILSTEIN_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "August-Bilstein-Straße",
+        "itinaryInformation": "string",
+        "houseNumber": "4",
+        "houseNumberSupplement": "",
+        "postalCode": "58256",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Ennepetal",
+        "district": "",
+        "region": "Nordrhein-Westfalen",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "51.2979822869329",
+        "longitude": "7.363947064176881",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00003_GRIS",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "GRIS GROUP",
+        "language": "FR",
+        "type": "REGISTERED_NAME",
+        "legalForm": ""
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "",
+        "typeOfIdentificationNumber": "",
+        "identificationNumber": ""
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "FR",
+        "emailAddress": "max.mustermann@gris-group.com",
+        "website": "https://www.gris-group.com/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+33",
+            "number": "0383808000",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "FR08144711000123456783",
+        "currency": "EUR",
+        "bankIdentifier": "Banque de Catena-X",
+        "countryOfBank": "FRA"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "GRIS_ADDR_1",
+        "language": "FR",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "",
+        "itinaryInformation": "string",
+        "houseNumber": "",
+        "houseNumberSupplement": "",
+        "postalCode": "54706",
+        "postalCodeType": "CEDEX",
+        "poBox": "BP 90185",
+        "city": "PONT-A-MOUSSON",
+        "district": "",
+        "region": "",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "France",
+          "countryNameLocal": "Francé"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00004_ZF",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "ZF Friedrichshafen AG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "AG"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "D-U-N-S",
+        "typeOfIdentificationNumber": "D-U-N-S",
+        "identificationNumber": "31-501-5446"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "postoffice@zf.com",
+        "website": "https://www.zf.com/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "07541770",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456784",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "ZF_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Löwentaler Straße",
+        "itinaryInformation": "string",
+        "houseNumber": "20",
+        "houseNumberSupplement": "",
+        "postalCode": "88046",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Friedrichshafen",
+        "district": "",
+        "region": "Bayern",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00005_TIER1",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "TIER1",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": ""
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "D-U-N-S",
+        "typeOfIdentificationNumber": "D-U-N-S",
+        "identificationNumber": "77-888-9999"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "max.mustermann@tier1.com",
+        "website": "https://www.tier1.com/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "1234567895",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456785",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "TIER1_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Tierstraße",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "80333",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "München",
+        "district": "",
+        "region": "Bayern",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00006_Mercedes",
+    "businessPartnerType": "OEM",
+    "businessPartnerName": [
+      {
+        "name": "Mercedes-Benz AG",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "AG"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE321281763"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "dialog.mb@daimler.com",
+        "website": "https://www.mercedes-benz.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "0711170",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456786",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "MERCEDES_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Mercedesstraße",
+        "itinaryInformation": "string",
+        "houseNumber": "120",
+        "houseNumberSupplement": "",
+        "postalCode": "70372",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Stuttgart",
+        "district": "",
+        "region": "Baden-Württemberg",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00007_BMW",
+    "businessPartnerType": "OEM",
+    "businessPartnerName": [
+      {
+        "name": "Bayerische Motoren Werke Aktiengesellschaft",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "AG"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE129273398"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "kundenbetreuung@bmw.de",
+        "website": "https://www.bmw.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "123456789",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456787",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BMW_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Petuelring",
+        "itinaryInformation": "string",
+        "houseNumber": "130",
+        "houseNumberSupplement": "",
+        "postalCode": "80788",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "München",
+        "district": "",
+        "region": "Bayern",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00008_BASF",
+    "businessPartnerType": "OEM",
+    "businessPartnerName": [
+      {
+        "name": "BASF",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": "AG"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE129273398"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "kundenbetreuung@bmw.de",
+        "website": "https://www.bmw.de/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "123456789",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456787",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "DEU"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "BMW_ADDR_1",
+        "language": "DE",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Petuelring",
+        "itinaryInformation": "string",
+        "houseNumber": "130",
+        "houseNumberSupplement": "",
+        "postalCode": "80788",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "München",
+        "district": "",
+        "region": "Bayern",
+        "country": {
+          "ISOCode": "DEU",
+          "countryNameEN": "Germany",
+          "countryNameLocal": "Deutschland"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_ERROR_CP",
+    "businessPartnerType": "string",
+    "businessPartnerName": [
+      {
+        "name": "ERROR CP",
+        "language": "DE",
+        "type": "REGISTERED_NAME",
+        "legalForm": ""
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "string"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "EN",
+        "emailAddress": "max.mustermann@.com",
+        "website": "string",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+49",
+            "number": "123456789",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "DE08144711000123456780",
+        "currency": "EUR",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "GER"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "string",
+        "language": "string",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "string",
+        "street": "string",
+        "itinaryInformation": "string",
+        "houseNumber": "string",
+        "houseNumberSupplement": "string",
+        "postalCode": "string",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "string",
+        "city": "string",
+        "district": "string",
+        "region": "string",
+        "country": {
+          "ISOCode": "string",
+          "countryNameEN": "string",
+          "countryNameLocal": "string"
+        },
+        "latitude": "string",
+        "longitude": "string",
+        "altitude": "string"
+      }
+    ]
+  },
+  {
+    "oneID": "Partner_00009_MICROSOFT",
+    "businessPartnerType": "Supplier",
+    "businessPartnerName": [
+      {
+        "name": "Microsoft",
+        "language": "EN",
+        "type": "REGISTERED_NAME",
+        "legalForm": "Corp"
+      }
+    ],
+    "businessPartnerIdentifiers": [
+      {
+        "issuer": "Finanzamt",
+        "typeOfIdentificationNumber": "UST-ID",
+        "identificationNumber": "DE811128135"
+      }
+    ],
+    "businessStatus": [
+      {
+        "statusOfOperation": "ACTIVE",
+        "validFrom": "2020-06-01T06:23:25.734Z",
+        "validTo": "2023-06-01T06:23:25.734Z"
+      }
+    ],
+    "contactData": [
+      {
+        "communicationLanguage": "DE",
+        "emailAddress": "info@microsoft.com",
+        "website": "https://www.microsoft.com/",
+        "phoneNumbers": [
+          {
+            "countryPrefix": "+1",
+            "number": "425-936-8080",
+            "type": "FIXED_LINE"
+          }
+        ]
+      }
+    ],
+    "bankData": [
+      {
+        "IBAN": "US08144711000123456781",
+        "currency": "USD",
+        "bankIdentifier": "Bank of Catena-X",
+        "countryOfBank": "USA"
+      }
+    ],
+    "addressData": [
+      {
+        "addressID": "MSFT_ADDR_1",
+        "language": "EN",
+        "addressType": [
+          "PHYSICAL_ADDRESS"
+        ],
+        "coName": "",
+        "street": "Microsoft Way",
+        "itinaryInformation": "string",
+        "houseNumber": "1",
+        "houseNumberSupplement": "",
+        "postalCode": "98052",
+        "postalCodeType": "CITY_POSTAL_CODE",
+        "poBox": "",
+        "city": "Redmond",
+        "district": "",
+        "region": "Washington",
+        "country": {
+          "ISOCode": "USA",
+          "countryNameEN": "United States",
+          "countryNameLocal": "den Vereinigten Staaten"
+        },
+        "latitude": "",
+        "longitude": "",
+        "altitude": ""
+      }
+    ]
+  },
+  {
     "oneID": "Partner_00015_Clothing",
     "businessPartnerType": "Supplier",
     "businessPartnerName": [

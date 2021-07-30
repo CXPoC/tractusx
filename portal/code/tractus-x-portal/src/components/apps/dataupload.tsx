@@ -80,7 +80,7 @@ class DataUpload extends React.Component<RouteComponentProps> {
 
     return (
       <div className='w100pc h100pc df fdc'>
-        <Header href={window.location.href} hidePivot appTitle='Data Upload Appplication' />
+        <Header href={window.location.href} hidePivot appTitle='Data Upload Application' />
         <div className='h1 bgde w100pc' />
         <SearchBox className='ml250 bcwhite' placeholder='Search' underlined={true} />
         <div className='bgf5 df fdc flex1'>
